@@ -168,7 +168,7 @@ Prefab:
         type: 2}
       propertyPath: saw
       value: 
-      objectReference: {fileID: 1276615813636954, guid: e3f8a01e8d7ec4145a94e4d789e407b8,
+      objectReference: {fileID: 1296072339030982, guid: e3f8a01e8d7ec4145a94e4d789e407b8,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875f720aa4415df41b02930d89407c18, type: 2}
@@ -1465,7 +1465,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4202107231941564, guid: 875f720aa4415df41b02930d89407c18, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.7614184
+      value: -0.784
       objectReference: {fileID: 0}
     - target: {fileID: 4202107231941564, guid: 875f720aa4415df41b02930d89407c18, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1511,7 +1511,7 @@ Prefab:
         type: 2}
       propertyPath: saw
       value: 
-      objectReference: {fileID: 1276615813636954, guid: e3f8a01e8d7ec4145a94e4d789e407b8,
+      objectReference: {fileID: 1296072339030982, guid: e3f8a01e8d7ec4145a94e4d789e407b8,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875f720aa4415df41b02930d89407c18, type: 2}
@@ -1558,6 +1558,10 @@ Prefab:
     - target: {fileID: 1529198575660018, guid: dd41ad6d536fe1747b1e219175444729, type: 2}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529198575660018, guid: dd41ad6d536fe1747b1e219175444729, type: 2}
+      propertyPath: m_TagString
+      value: block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd41ad6d536fe1747b1e219175444729, type: 2}
@@ -1656,7 +1660,7 @@ GameObject:
   - component: {fileID: 2113503043}
   m_Layer: 0
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

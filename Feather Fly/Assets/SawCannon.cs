@@ -6,6 +6,7 @@ public class SawCannon : MonoBehaviour {
     public GameObject saw;
     public Transform sawSpawn;
     public float sawSpeed = 0.5f;
+    private bool check = false;
 
 
 
@@ -24,18 +25,19 @@ public class SawCannon : MonoBehaviour {
         //Time.deltaTime = 300;
     }
 
-    private void OnCollisionEnter(Collision saws, Collision blocks)
+    private void OnCollisionExit(Collision saws)
     {
         // When colliding with blocks, destroy saws
         if (saws.gameObject.tag == "saw")
         {
+
             Destroy(saws.gameObject);
         }
     }
 
     void Update()
     {
-        
+        Debug.Log(check);
     }
 
 }  
