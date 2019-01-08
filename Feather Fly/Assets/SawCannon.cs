@@ -24,10 +24,11 @@ public class SawCannon : MonoBehaviour {
 
         //Time.deltaTime = 300;
     }
-
+    // OnCollisionEnter instead. Make saw spawn right outside of cannon so that they don't collide.
     private void OnCollisionExit(Collision saws)
     {
         // When colliding with blocks, destroy saws
+
         if (saws.gameObject.tag == "saw")
         {
 
@@ -37,7 +38,7 @@ public class SawCannon : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(check);
+        //Debug.Log(check);
     }
 
 }  

@@ -32,7 +32,7 @@ public class Blocks : MonoBehaviour {
         for (int i = 2; i < 10; i++)
         {
             int blockID = Random.Range(1, 6);
-            Debug.Log(blockID);
+            //Debug.Log(blockID);
 
 
             //---**CHANGE TO SWITCH**---//

@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
     public GameObject game;
     public GameObject deathScreen;
 
+    //public bool gameRun = true;
+    
+
 
 	// Use this for initialization
 	void Start () {

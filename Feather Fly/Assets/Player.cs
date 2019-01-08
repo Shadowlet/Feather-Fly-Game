@@ -11,40 +11,76 @@ public class Player : MonoBehaviour {
     //public GameManager gameManager;
     public Camera featherCamera;
     public Rigidbody feather;
+    public Transform player;
+
+    public float featherX;
+    public float featherY;
+    public bool inVacuum = false;
+    public bool inFan = false;
+
+  
+
+    
 
 
     // Use this for initialization
     void Start() {
+
+        featherX = feather.transform.position.x;
+        featherY = feather.transform.position.y;
+
+        //player = GameObject.FindWithTag("Player").transform;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float featherX = feather.transform.position.x;
-        float featherY = feather.transform.position.y;
-
-        Debug.Log(featherX);
 
         feather.AddForce(Vector3.right * 700);
 
+        // Vacuum shit
+        if(inVacuum == true)
+        {
+            feather.AddForce(Vector3.left * 1200);
+        }
 
 
+
+        // Blows feather 
         if (Input.GetKey(KeyCode.S))
         {
-
             feather.AddForce(Vector3.up * 1000); // <----
-
-
         }
+
 
     }
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider windBox)
     {
-        //if(collision.gameObject.tag)
+        if(windBox.gameObject.tag == "vacuumArea")
+        {
+            inVacuum = true;
+        }
+        if (windBox.gameObject.tag == "fanArea")
+        {
+            inFan = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider windBox)
+    {
+        if(windBox.gameObject.tag == "vacuumArea")
+        {
+            inVacuum = false;
+        }
+        if (windBox.gameObject.tag == "vacuumArea")
+        {
+            inFan = false;
+        }
     }
 
     public void gameOver(int status)
