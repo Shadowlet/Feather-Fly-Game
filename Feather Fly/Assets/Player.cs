@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 //-------NOTE TO SELF!!!!---------//
 
-// * Remove velocity garbage
 public class Player : MonoBehaviour {
     //public GameManager gameManager;
     public Camera featherCamera;
     public Rigidbody feather;
-    public Transform player;
-
+    
     public float featherX;
     public float featherY;
     public bool inVacuum = false;
@@ -37,12 +35,26 @@ public class Player : MonoBehaviour {
     void Update()
     {
 
-        feather.AddForce(Vector3.right * 700);
+        feather.AddForce(Vector3.right * 600);
+
+        // Fan shit
+        if(inFan == true)
+        {
+            feather.AddForce(Vector3.left * 1600);
+        }
+        else
+        {
+            inFan = false;
+        }
 
         // Vacuum shit
         if(inVacuum == true)
         {
-            feather.AddForce(Vector3.left * 1200);
+            feather.AddForce(Vector3.right * 1300);
+        }
+        else
+        {
+            inVacuum = false;
         }
 
 
@@ -56,31 +68,44 @@ public class Player : MonoBehaviour {
 
     }
 
-
-
-    private void OnTriggerEnter(Collider windBox)
+    // Wind related blocks
+    void OnTriggerEnter(Collider other)
     {
-        if(windBox.gameObject.tag == "vacuumArea")
+        if (other.gameObject.tag == "vacuumArea")
         {
             inVacuum = true;
+            Debug.Log("Vacuum True");
         }
-        if (windBox.gameObject.tag == "fanArea")
+        if (other.gameObject.tag == "fanArea")
         {
             inFan = true;
+            Debug.Log("Fan True");
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "vacuumArea")
+        {
+            inVacuum = false;
+            Debug.Log("Vacuum False");
+        }
+        if (other.gameObject.tag == "fanArea")
+        {
+            inFan = false;
+            Debug.Log("Fan False");
+        }
+    }
+    private void OnCollisionEnter(Collision windBox)
+    {
+        
+        
 
     }
 
-    private void OnTriggerExit(Collider windBox)
+    private void OnCollisionExit(Collision windBox)
     {
-        if(windBox.gameObject.tag == "vacuumArea")
-        {
-            inVacuum = false;
-        }
-        if (windBox.gameObject.tag == "vacuumArea")
-        {
-            inFan = false;
-        }
+        
     }
 
     public void gameOver(int status)

@@ -9,6 +9,7 @@ public class SawCannon : MonoBehaviour {
     private bool check = false;
 
 
+    
 
 	// Use this for initialization
 	void Start () {
@@ -19,10 +20,10 @@ public class SawCannon : MonoBehaviour {
 
     void shootSaw()
     {
-        GameObject temp = Instantiate(saw, this.transform.position, this.transform.rotation);
+        GameObject temp = Instantiate(saw, saw.transform.position, this.transform.rotation);
         temp.GetComponent<Rigidbody>().AddForce(Vector3.left * 9700);
 
-        //Time.deltaTime = 300;
+        
     }
     // OnCollisionEnter instead. Make saw spawn right outside of cannon so that they don't collide.
     private void OnCollisionExit(Collision saws)
