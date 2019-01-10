@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 
 //-------NOTE TO SELF!!!!---------//
+// ** Full feather distance = 166.18939 x
+// ** Half feather distance = 83.094695 x
 
 public class Player : MonoBehaviour {
     //public GameManager gameManager;
@@ -16,14 +18,9 @@ public class Player : MonoBehaviour {
     public bool inVacuum = false;
     public bool inFan = false;
 
-  
-
-    
-
 
     // Use this for initialization
     void Start() {
-
         featherX = feather.transform.position.x;
         featherY = feather.transform.position.y;
 

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SawCannon : MonoBehaviour {
     public GameObject saw;
-    public Transform sawSpawn;
-    public float sawSpeed = 0.5f;
+    //public Transform sawSpawn;
+    //public float sawSpeed = 0.5f;
     private bool check = false;
 
 
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    private void Start () {
         InvokeRepeating("shootSaw", 1, 1);
 
 	}
@@ -20,26 +20,24 @@ public class SawCannon : MonoBehaviour {
 
     void shootSaw()
     {
-        GameObject temp = Instantiate(saw, saw.transform.position, this.transform.rotation);
-        temp.GetComponent<Rigidbody>().AddForce(Vector3.left * 9700);
+        GameObject tempSaw = Instantiate(saw, this.transform.position, this.transform.rotation);
+        tempSaw.GetComponent<Rigidbody>().AddForce(Vector3.left * 6000);
 
-        
+        //Debug.Log(saw.transform.position.y);
+
+
+
     }
     // OnCollisionEnter instead. Make saw spawn right outside of cannon so that they don't collide.
     private void OnCollisionExit(Collision saws)
     {
         // When colliding with blocks, destroy saws
-
-        if (saws.gameObject.tag == "saw")
-        {
-
-            Destroy(saws.gameObject);
-        }
     }
 
-    void Update()
+    private void Update()
     {
-        //Debug.Log(check);
+
+        
     }
 
 }  

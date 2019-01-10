@@ -21,12 +21,11 @@ public class Blocks : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        // distance...
-        new Vector3(20, 0, 0);
+     
 
         int blockDistance = 20;
 
-        // Currently creates 8 floats of each
+        // Currently creates floats of each
         float firstBlockX = firstBlock.transform.position.x;
         float firstBlockY = firstBlock.transform.position.y;
 
